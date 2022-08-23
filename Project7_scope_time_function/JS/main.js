@@ -26,24 +26,24 @@ function Add_numbers_3() {
 Add_numbers_3();
 Add_numbers_4();
 
-function get_Date(); { //Function to pull the date and hours to send a message if before 6PM
+function get_Date() { //Function to pull the date and hours to send a message if before 6PM
     if (new Date().getHours() < 18) {
-        document.getElementById("Greeting").innerHTML = "How are you today?";
+        document.getElementById("Greeting").innerHTML = "How are you today?"
     }
 }
 
-function guess_number(); { //Creating a function for "if" statement 
-    if (number == 7) {
-        document.getElementById("Guess").innerHTML = "Great guess!";
+function guess_number() { //Creating a function for "if" statement 
+    if (number == ) {
+        document.getElementById("Guess").innerHTML = "Great guess!"
     }
 }
 function Height_Function() { //Creating another function to run full "if" "else" statements and outputs
-    Height = docoument.getElementById("Height").value;
+    Height = document.getElementById("Height").value;
     if (Height >= 70) {
-        Ride = "You are tall enough to ride!";
+        Ride = "You are tall enough to ride!"
     }
     else {
-        Ride = "Oops, a little to short for this one!";
+        Ride = "Oops, a little too short for this one!";
     }
     document.getElementById("How_tall_are_you?").innerHTML = Ride;
 }
