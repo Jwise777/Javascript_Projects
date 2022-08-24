@@ -33,7 +33,8 @@ function get_Date() { //Function to pull the date and hours to send a message if
 }
 
 function guess_number() { //Creating a function for "if" statement 
-    if (number == ) {
+    Number = document.getElementById("number").value;
+    if (number == 7) {
         document.getElementById("Guess").innerHTML = "Great guess!"
     }
 }
