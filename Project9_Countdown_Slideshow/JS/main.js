@@ -39,4 +39,5 @@ function countdown() {
             timer.innerHTML = "";
         }
     }
+    tick()
 }
