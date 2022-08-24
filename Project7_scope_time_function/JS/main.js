@@ -35,8 +35,12 @@ function get_Date() { //Function to pull the date and hours to send a message if
 function guess_number() { //Creating a function for "if" statement 
     Number = document.getElementById("number").value;
     if (number == 7) {
-        document.getElementById("Guess").innerHTML = "Great guess!"
+        Guess = "Wow you are lucky!"
     }
+    else {
+        Guess = "Not today";
+    }
+    document.getElementById("Guess").innerHTML = Guess;
 }
 function Height_Function() { //Creating another function to run full "if" "else" statements and outputs
     Height = document.getElementById("Height").value;
