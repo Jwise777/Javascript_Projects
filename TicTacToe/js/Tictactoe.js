@@ -33,6 +33,38 @@ function placeXOrO(squareNumber) {
             //Change the activePlayer to 'X'
             activePlayer = 'X';
         }
+        //This function plays placement sound.
+        audio('./media/Sound.mp3');
+        //this condition checks to see if it is the computers turn.
+        if (activePlayer === 'O') {
+            //This function disables clicking for computers turn.
+            disableClick();
+            //This function waits 1 second before the computer places an image and enables click.
+            setTimeout(function () { computersTurn(); }, 1000);
+        }
+        //Returning true is needed for out computersTurn() function to work.
+        return true;
+    }
+    //This function results in a random square being selected by the computer.
+    function computersTurn() {
+        //This boolean is needed for our while loop.
+        let success = false;
+        //This variable stores a random number 0-8.
+        let pickASquare;
+        //This condition allows our while loop to keep trying if a square is selected already.
+        while (!success) {
+            //A random number between 0 and 8 is selected.
+            pickASquare = String(Math.floor(Math.random() * 9));
+            //If the random number evaluated returns true, the square hasn't been selected yet.
+            if (placeXOrO(pickASquare)) {
+                //This line calls the function.
+                placeXOrO(pickASquare);
+                //This changes our boolean and ends the loop.
+                success = true;
+            };
+        }
+    }
+ }      
 
         //This function parses the selectedSquares array to search for win conditions.
         //drawLine() function is called to draw a line on the screen if the condition is met.
@@ -77,16 +109,16 @@ function placeXOrO(squareNumber) {
                 //This function sets a .3 second timer before the resetGame is called.
                 setTimeout(function () { resetGame(); }, 500);
             }
-
-            //This function checks if an array includes 3 strings. It is used to check for each win condition.
-            function arrayIncludes(squareA, squareB, squareC) {
-                //These 3 variables will be used to check for 3 in a row.
-                const a = selectedSquares.includes(squareA);
-                const b = selectedSquares.includes(squareB);
-                const c = selectedSquares.includes(squareC);
-                //If the 3 variables we pass are all includes in our array then true is returned and our else if condition executes the drawLine() function.
-                if (a === true && b === true && c === true) { return true; }
-            }
+        }
+        
+         //This function checks if an array includes 3 strings. It is used to check for each win condition.
+        function arrayIncludes(squareA, squareB, squareC) {
+            //These 3 variables will be used to check for 3 in a row.
+            const a = selectedSquares.includes(squareA);
+            const b = selectedSquares.includes(squareB);
+            const c = selectedSquares.includes(squareC);
+            //If the 3 variables we pass are all includes in our array then true is returned and our else if condition executes the drawLine() function.
+            if (a === true && b === true && c === true) { return true; }
         }
 
         //This function makes our body element temporarily unclickable.
@@ -135,7 +167,7 @@ function placeXOrO(squareNumber) {
                 //This method moves us to a stating point in our line.
                 c.moveTo(x1, y1);
                 //This method indicates the end point in our line.
-                c.lineto(x, y);
+                c.lineTo(x, y);
                 //This method sets the width of our line.
                 c.lineWidth = 10;
                 //This method sets the color of our line.
@@ -189,38 +221,4 @@ function placeXOrO(squareNumber) {
             }
             //This resets our array so it is empty and we can start over.
             selectedSquares = [];
-        }
-
-
-        //This function plays placement sound.
-        audio('./media/Sound.mp3');
-        //this condition checks to see if it is the computers turn.
-        if (activePlayer === 'O') {
-            //This function disables clicking for computers turn.
-            disableClick();
-            //This function waits 1 second before the computer places an image and enables click.
-            setTimeout(function () { computersTurn(); }, 1000);
-        }
-        //Returning true is needed for out computersTurn() function to work.
-        return true;
-    }
-    //This function results in a random square being selected by the computer.
-    function computersTurn() {
-        //This boolean is needed for our while loop.
-        let success = false;
-        //This variable stores a random number 0-8.
-        let pickASquare;
-        //This condition allows our while loop to keep trying if a square is selected already.
-        while (!success) {
-            //A random number between 0 and 8 is selected.
-            pickASquare = String(Math.floor(Math.random() * 9));
-            //If the random number evaluated returns true, the square hasn't been selected yet.
-            if (placeXOrO(pickASquare)) {
-                //This line calls the function.
-                placeXOrO(pickASquare);
-                //This changes our boolean and ends the loop.
-                success = true;
-            };
-        }
-    }
- }      
+        }     
