@@ -84,8 +84,8 @@ function Update_Display() {
 
 Update_Display();
 //This section monitors button clicks
-const keys = document.querySelector('.Calculator-keys');
-keys.addEventListener('click'), (event) => {
+const keys = document.querySelector('.calculator-keys');
+keys.addEventListener('click', (event) => {
     //This target variable is an object that represents the element that was clicked.
     const { target } = event;
     //If the element that was click on is not a button, exit the function.
@@ -111,4 +111,4 @@ keys.addEventListener('click'), (event) => {
     Input_Digit(target.value);
     Update_Display();
 
-}
+})
