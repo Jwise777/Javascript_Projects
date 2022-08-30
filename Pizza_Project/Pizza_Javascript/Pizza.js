@@ -29,6 +29,7 @@ function getReceipt() {
     console.log("subtotal: $"+runningTotal+".00");
     //These variables will get passed on to each function
     getTopping(runningTotal,text1);
+    getVegetable(runningTotal,text1);
 };
 
 function getTopping(runningTotal,text1) {    //This is the function used to print on the receipt the toppings that the customer selected
@@ -48,6 +49,7 @@ function getTopping(runningTotal,text1) {    //This is the function used to prin
     } else {
         toppingTotal = 0;
     }
+
     runningTotal = (runningTotal + toppingTotal);
     console.log("total selected topping items: "+toppingCount);
     console.log(toppingCount+" topping - 1 free topping = "+"$"+toppingTotal+".00");
